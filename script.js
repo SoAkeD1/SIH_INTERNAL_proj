@@ -29,6 +29,11 @@
       if(!entry) return;
       el.innerHTML = entry[lang] || entry.en;
     });
+    // Table cells carry their column name for the stacked mobile layout (CSS reads data-label)
+    document.querySelectorAll("[data-i18n-label]").forEach(function(el){
+      var entry = dict[el.getAttribute("data-i18n-label")];
+      if(entry) el.setAttribute("data-label", entry[lang] || entry.en);
+    });
     document.documentElement.setAttribute("lang", lang === "hi" ? "hi" : "en");
     langBtn.textContent = lang === "hi" ? "\u0939\u093f\u0902" : "EN";
     localStorage.setItem("rudhira-lang", lang);

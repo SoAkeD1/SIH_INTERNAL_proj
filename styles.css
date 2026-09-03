@@ -114,7 +114,7 @@ nav.primary{display:flex;gap:13px;flex:1;overflow-x:auto;scrollbar-width:none;-m
 nav.primary::-webkit-scrollbar{display:none}
 nav.primary a{font-size:13px;color:var(--fg-muted);white-space:nowrap;font-weight:500}
 nav.primary a:hover{color:var(--fg);text-decoration:none}
-.topbar-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.topbar-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:auto}
 .icon-btn{
   width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:transparent;
   color:var(--fg-muted);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;
@@ -330,6 +330,29 @@ td.tier-cell{font-weight:700;color:var(--fg)}
 .tier-dot.elite{background:var(--accent)}
 td.hero-cell{font-weight:700;color:var(--fg)}
 
+/* Stack tables into cards on narrow screens instead of side-scrolling */
+@media(max-width:760px){
+  .table-wrap{overflow:visible;border:none;background:none;border-radius:0}
+  table{min-width:0;width:100%;display:block;font-size:13.5px}
+  thead{display:none}
+  tbody,tbody tr,tbody td{display:block;width:auto}
+  tbody tr{
+    border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-elev);
+    margin-bottom:14px;overflow:hidden;
+  }
+  tbody tr:last-child{margin-bottom:0}
+  tbody tr:hover{background:var(--bg-elev)}
+  tbody td{
+    padding:12px 18px;border-bottom:1px solid var(--border-soft);color:var(--fg-muted);
+  }
+  tbody td:last-child{border-bottom:none}
+  tbody td:not(.tier-cell):not(.hero-cell)::before{
+    content:attr(data-label);display:block;margin-bottom:4px;
+    font:700 10.5px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--fg-faint);
+  }
+  td.tier-cell,td.hero-cell{background:var(--bg-elev-2);color:var(--fg);font-size:15px;padding:14px 18px}
+}
+
 .app-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:28px}
 .app-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;background:var(--bg-elev-2)}
 .app-card .badge{display:inline-block;font:600 11px var(--mono);letter-spacing:.06em;color:var(--accent-fg);
@@ -392,6 +415,15 @@ td.hero-cell{font-weight:700;color:var(--fg)}
 }
 @media(max-width:1100px){
   nav.primary{display:none}
+}
+@media(max-width:600px){
+  .topbar-inner{gap:12px;padding-left:16px;padding-right:16px}
+  .topbar-actions{gap:8px}
+  .topbar-actions .btn-ghost{display:none}
+}
+@media(max-width:380px){
+  .brand .devanagari{display:none}
+  .topbar-actions .btn-sm{padding:7px 12px}
 }
 @media(max-width:640px){
   .stat-grid,.card-grid-3,.pillar-grid,.econ-groups,.app-cards,.impact-cards{grid-template-columns:1fr}
