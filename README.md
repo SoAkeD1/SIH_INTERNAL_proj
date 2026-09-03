@@ -61,17 +61,14 @@ Real sign-up / sign-in for the three parties the model connects — **Donor, Hos
 
 ### A · The Rudhira model (real-world flow)
 
-```
-  Collection drives            Processing hub                 Outputs
- ┌──────────────────┐      ┌────────────────────┐      ┌──────────────────────────┐
- │  College drive   │      │  NAT testing       │ ───▶ │  Hospitals               │
- │  Corporate drive │ ───▶ │  Component sep.     │      │  red cells, capped fee   │
- │  Residential     │      │  Cold chain        │      ├──────────────────────────┤
- └──────────────────┘      └────────────────────┘ ───▶ │  Licensed fractionator   │
-                                                       │  surplus plasma only,    │
-                                                       │  logged unissued past    │
-                                                       │  a pre-expiry cutoff     │
-                                                       └──────────────────────────┘
+```mermaid
+flowchart LR
+    D1["College drive"] --> HUB
+    D2["Corporate drive"] --> HUB
+    D3["Residential drive"] --> HUB
+    HUB["Processing hub<br/>NAT testing · component separation · cold chain"]
+    HUB --> H["Hospitals<br/>red cells &amp; platelets, capped fee<br/>(first claim, always)"]
+    HUB --> F["Licensed fractionator<br/>surplus plasma only —<br/>logged unissued past a fixed pre-expiry cutoff"]
 ```
 
 1. A donor gives at a mobile drive — voluntary, unpaid.
@@ -82,18 +79,14 @@ Real sign-up / sign-in for the three parties the model connects — **Donor, Hos
 
 ### B · The app (network sign-in flow)
 
-```
- index.html ──"Join the network"──▶ join.html
-                                       │
-              ┌── Register (email) ────┤── Continue with Google ──┐
-              │  pick role + name/org  │  OAuth round-trip         │
-              ▼                        │  (no role yet)            ▼
-         role saved to profile        │                  "Which are you?"
-              │                        │                   role picker
-              └──────────────┬─────────┘                        │
-                             ▼                                   │
-                       dashboard.html  ◀──────────────────────────┘
-                  gated · role-specific view · Sign out → home
+```mermaid
+flowchart TD
+    IDX["index.html"] -->|"Join the network"| JOIN["join.html<br/>pick role: Donor / Hospital / Fractionator"]
+    JOIN -->|"Register (email + password)"| REG["role + name/org saved to profile"]
+    JOIN -->|"Continue with Google"| G["OAuth round-trip<br/>returns with no role"]
+    G --> PICK["one-time &quot;which are you?&quot; picker"]
+    REG --> DASH
+    PICK --> DASH["dashboard.html<br/>gated · role-specific cards · Sign out → home"]
 ```
 
 - **Register** with email + password → role (Donor / Hospital / Fractionator) and name/organisation are saved to the user's profile → straight to the dashboard.
