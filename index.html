@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rudhira | A self-sustaining blood and plasma model</title>
+<meta name="description" content="Rudhira funds India's blood supply chain by monetizing the surplus plasma blood banks already discard, not by selling blood.">
+<meta property="og:title" content="Rudhira | A self-sustaining blood and plasma model">
+<meta property="og:description" content="Rudhira funds India's blood supply chain by monetizing the surplus plasma blood banks already discard, not by selling blood.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="./image-slot.js"></script>
+</head>
+<body>
+<a class="skiplink" href="#top">Skip to main content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top" id="top">
+      <span class="mark">R</span>
+      <span>Rudhira</span>
+      <span class="devanagari">रुधिर</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#problem" data-i18n="nav_problem">Problem</a>
+      <a href="#model" data-i18n="nav_model">Model</a>
+      <a href="#economics" data-i18n="nav_economics">Economics</a>
+      <a href="#compliance" data-i18n="nav_compliance">Compliance</a>
+      <a href="#loyalty" data-i18n="nav_rewards">Rewards</a>
+      <a href="#city" data-i18n="nav_city">Pilot</a>
+      <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="langToggle" aria-label="Switch language" title="Switch language">EN</button>
+      <button class="icon-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme">☀</button>
+      <a class="btn btn-ghost btn-sm" href="join.html" data-i18n="nav_join">Join the network</a>
+      <a class="btn btn-primary btn-sm" href="#ask" data-i18n="nav_ask">The ask</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-media">
+    <image-slot id="hero-photo" shape="rect" fit="cover" placeholder="Drop a strong hero photo — cold-chain storage, a donation drive, or the hub in action" src="https://images.unsplash.com/photo-1753011399874-e4fa3ec22645?q=80&amp;w=2600&amp;auto=format&amp;fit=crop" credit="Photo by Nils Huenerfuerst on Unsplash" credit-href="https://unsplash.com/@nhuenerfuerst"></image-slot>
+    <div class="hero-scrim"></div>
+    <div class="hero-media-overlay">
+      <span class="eyebrow" data-i18n="hero_eyebrow">Hub-and-spoke plasma economics</span>
+      <h1 data-i18n="hero_h1">We don&rsquo;t sell blood. We stop wasting its plasma.</h1>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#economics" data-i18n="hero_cta1">See the unit economics</a>
+        <a class="btn btn-ghost btn-on-media" href="#compliance" data-i18n="hero_cta2">Read the compliance case</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-notes-row hero-notes">
+      <div class="hero-note"><span class="num">01</span><span data-i18n="hero_note1">Donors are unpaid volunteers. Patients pay the same government-capped fee. Blood is never sold.</span></div>
+      <div class="hero-note"><span class="num">02</span><span data-i18n="hero_note2">Only plasma already unissued near its expiry date is sold, to a licensed Indian fractionator.</span></div>
+      <div class="hero-note"><span class="num">03</span><span data-i18n="hero_note3">That alone turns a Rs 21 per unit margin into Rs 41 at private-rate centres. Government-rate centres still need hub-scale volume too.</span></div>
+      <div class="hero-note"><span class="num">04</span><span data-i18n="hero_note4">Ask: fund one pilot hub, prove operating breakeven in twelve months, then replicate.</span></div>
+    </div>
+
+    <div class="counter-strip reveal">
+      <div class="counter-num" id="wastageCounter">0</div>
+      <div class="counter-meta">
+        <div class="label" data-i18n="counter_label">Plasma lost to expiry in India this year, estimated</div>
+        <div class="foot"><span data-i18n="counter_footnote">Extrapolated from the 3,00,000+/year figure below, not a live feed</span> &middot; <a href="https://english.newsnationtv.com/lifestyle/health-and-fitness/6-lakh-litres-of-blood-wasted-in-five-years-in-india-serious-loopholes-in-blood-banking-system-exposed-169373.html" data-i18n="counter_source">source</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_problem">The problem</span>
+      <h2 data-i18n="problem_h2">Blood banks are not badly run. They are badly funded, by design.</h2>
+    </div>
+
+    <div class="stat-grid reveal">
+      <div class="stat-card" data-copy="3,00,000+ units of fresh frozen plasma discarded in a single reported year nationally. Source: News Nation, national blood-bank discard data.">
+        <span class="copy-hint" data-i18n="stat_copy">Click to copy with source</span>
+        <div class="num" data-i18n="stat1_num">3,00,000+</div>
+        <div class="label" data-i18n="stat1_label">units of fresh frozen plasma discarded in a single reported year nationally, over half of all blood-component wastage that year</div>
+      </div>
+      <div class="stat-card" data-copy="Rs 1,600 per litre paid for surplus plasma. Source: Medical Dialogues, AIIMS Nagpur RTI disclosure.">
+        <span class="copy-hint" data-i18n="stat_copy">Click to copy with source</span>
+        <div class="num" data-i18n="stat2_num">Rs 1,600</div>
+        <div class="label" data-i18n="stat2_label">per litre a licensed Indian fractionator has actually paid a hospital for surplus plasma (AIIMS Nagpur, RTI-disclosed)</div>
+      </div>
+      <div class="stat-card" data-copy="~0.5M litres of plasma available nationally for fractionation each year. Source: Invest India, plasma fractionation overview.">
+        <span class="copy-hint" data-i18n="stat_copy">Click to copy with source</span>
+        <div class="num" data-i18n="stat3_num">~0.5M L</div>
+        <div class="label" data-i18n="stat3_label">plasma available nationally for fractionation each year, roughly the rated capacity of a single Indian plant</div>
+      </div>
+    </div>
+
+    <div class="essay">
+      <div>
+        <p>The processing fee a blood centre may charge is fixed by the National Blood Transfusion Council. That ceiling is the ethical floor of the whole system and should not move. But it also means a centre cannot price its way out of a cost problem, which is exactly the problem most of them have.</p>
+        <p>A single whole-blood donation splits into three products with completely different economics. <strong>Red cells</strong> are the clinical product everyone thinks of, priced at a government-set ceiling. <strong>Platelets</strong> last five days and are hard to plan around. <strong>Plasma</strong> is the anomaly: it freezes for about a year, is produced automatically on every donation, and hospitals clinically need far less of it than gets collected.</p>
+        <p>Most Indian blood centres are small. Nearly 4,000 of them process only a few thousand units a year each, yet the fixed costs of running a centre &mdash; the nucleic acid testing (NAT) platform that screens for HIV and hepatitis, the component-separation equipment, the cold chain &mdash; barely change with volume. Small centres absorb the same fixed cost as large ones and never reach the scale to recover it.</p>
+        <p>The result is visible in the discard data. Plasma is the component with the longest shelf life and it is still the single largest category of blood-product waste in the country, because most small centres cannot separate, freeze, and route it fast enough to reach anyone who wants it before it expires.</p>
+      </div>
+      <div class="mini-stats">
+        <div class="mini-stat"><div class="n">Rs 1,829</div><div class="d">Fully loaded cost to process one donation with component separation and NAT testing, per a published Indian tertiary-care unit-cost study.</div></div>
+        <div class="mini-stat"><div class="n">Rs 1,100&ndash;1,550</div><div class="d">The NBTC processing-fee ceiling for a unit of red cells, government-run versus private centres. The only clinical revenue most centres can legally collect.</div></div>
+        <div class="mini-stat"><div class="n">Rs 300</div><div class="d">The processing-fee ceiling for a unit of fresh frozen plasma issued for transfusion, capped low because clinical demand for plasma is genuinely limited.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_model">The model</span>
+      <h2 data-i18n="fix_h2">The fix is not a collection app. It is where the plasma goes.</h2>
+      <p>Rudhira never sells blood. Donors give voluntarily and are never paid. Patients pay the same government-capped fee as anywhere else. What changes is that plasma nobody is going to transfuse gets frozen correctly and sold, under an existing NBTC-sanctioned channel, to a licensed Indian fractionator instead of expiring in a freezer.</p>
+    </div>
+
+    <div class="diagram reveal">
+      <div class="diagram-row">
+        <div class="diagram-col">
+          <div class="dbox source" data-i18n="diagram_college">College drive</div>
+          <div class="dbox source" data-i18n="diagram_corporate">Corporate drive</div>
+          <div class="dbox source" data-i18n="diagram_residential">Residential drive</div>
+        </div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="diagram-col center">
+          <div class="dbox hub"><span data-i18n="diagram_hub">Processing hub</span><span class="sub" data-i18n="diagram_hub_sub">NAT testing, component separation, cold chain</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="diagram-outputs">
+          <div class="dbox"><span data-i18n="diagram_hospitals">Hospitals</span><span class="sub" data-i18n="diagram_hospitals_sub">Red cells, capped fee</span></div>
+          <div class="dbox"><span data-i18n="diagram_fractionator">Licensed fractionator</span><span class="sub" data-i18n="diagram_fractionator_sub">Surplus plasma only</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid-3 reveal">
+      <div class="info-card"><h4 data-i18n="fix_card1_title">Pooled collection</h4><p data-i18n="fix_card1_body">Many small, cheap mobile drives feed one hub instead of each running its own equipment. Pooled inventory across the cluster also cuts expiry losses, since combined demand varies less than any single site&rsquo;s.</p></div>
+      <div class="info-card"><h4 data-i18n="fix_card2_title">One licensed hub</h4><p data-i18n="fix_card2_body">The NAT platform, component separator, and cold chain that a small centre cannot afford alone are shared across the whole cluster, amortized over far more donations.</p></div>
+      <div class="info-card"><h4 data-i18n="fix_card3_title">Surplus only, audited</h4><p data-i18n="fix_card3_body">Plasma goes to a fractionator only once it is documented as unissued ahead of a fixed pre-expiry cutoff. Clinical demand always has first claim, and the surplus ratio is published, not discretionary.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMICS -->
+<section id="economics">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_economics">Economics</span>
+      <h2 data-i18n="econ_h2">The arithmetic, per donation</h2>
+      <p data-i18n="econ_intro">Same fully-loaded cost of Rs 1,829 in every scenario. What changes is the fee ceiling a centre operates under, and whether unissued plasma is discarded or sold under contract to a fractionator.</p>
+    </div>
+
+    <div class="econ-groups reveal">
+      <div class="econ-group">
+        <div class="econ-group-head"><h4 data-i18n="econ_private">Private-rate centre</h4><span class="tag" data-i18n="econ_today">Today</span></div>
+        <div class="econ-rows">
+          <div class="econ-line"><span data-i18n="econ_redcells">Red cells (PRBC)</span><b>Rs 1,550</b></div>
+          <div class="econ-line"><span data-i18n="econ_plasma_clinical">Plasma (clinical issue)</span><b>Rs 300</b></div>
+        </div>
+        <div class="econ-result"><span class="calc">Rs 1,850 &minus; Rs 1,829</span><span class="margin pos">+Rs 21 /unit</span></div>
+      </div>
+      <div class="econ-group is-rudhira">
+        <div class="econ-group-head"><h4 data-i18n="econ_private">Private-rate centre</h4><span class="tag" data-i18n="econ_rudhira">Rudhira</span></div>
+        <div class="econ-rows">
+          <div class="econ-line"><span data-i18n="econ_redcells">Red cells (PRBC)</span><b>Rs 1,550</b></div>
+          <div class="econ-line"><span data-i18n="econ_plasma_surplus">Surplus plasma to fractionator</span><b>Rs 320</b></div>
+        </div>
+        <div class="econ-result"><span class="calc">Rs 1,870 &minus; Rs 1,829</span><span class="margin pos">+Rs 41 /unit</span></div>
+      </div>
+      <div class="econ-group">
+        <div class="econ-group-head"><h4 data-i18n="econ_govt">Government-rate centre</h4><span class="tag" data-i18n="econ_today">Today</span></div>
+        <div class="econ-rows">
+          <div class="econ-line"><span data-i18n="econ_redcells">Red cells (PRBC)</span><b>Rs 1,100</b></div>
+          <div class="econ-line"><span data-i18n="econ_plasma_clinical">Plasma (clinical issue)</span><b>Rs 300</b></div>
+        </div>
+        <div class="econ-result"><span class="calc">Rs 1,400 &minus; Rs 1,829</span><span class="margin neg">&minus;Rs 429 /unit</span></div>
+      </div>
+      <div class="econ-group is-rudhira">
+        <div class="econ-group-head"><h4 data-i18n="econ_govt">Government-rate centre</h4><span class="tag" data-i18n="econ_rudhira">Rudhira</span></div>
+        <div class="econ-rows">
+          <div class="econ-line"><span data-i18n="econ_redcells">Red cells (PRBC)</span><b>Rs 1,100</b></div>
+          <div class="econ-line"><span data-i18n="econ_plasma_surplus">Surplus plasma to fractionator</span><b>Rs 320</b></div>
+        </div>
+        <div class="econ-result"><span class="calc">Rs 1,420 &minus; Rs 1,829</span><span class="margin neg">&minus;Rs 409 /unit</span></div>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <h4 data-i18n="econ_sensitivity_title">Plasma revenue is not the whole fix, and we are not pretending it is.</h4>
+      <p>At the government fee ceiling, routing surplus plasma to a fractionator narrows the loss from Rs 429 to Rs 409 per unit. It does not close it. The Rs 1,829 base cost has to fall too, and that only happens through volume: NAT and component-separation equipment are largely fixed cost, so a hub serving many spokes spreads that cost over far more donations than any single small centre does today.</p>
+      <p>We have not found a sourced, published figure for exactly how much a consolidated hub cuts per-unit cost, so we model it as a labelled sensitivity, not a claim. Assuming plasma is routed to the fractionator throughout: a <strong>15 percent</strong> reduction in base cost (to about Rs 1,555) narrows the government-rate loss to roughly Rs 135 per unit. A <strong>25 percent</strong> reduction (to about Rs 1,372) turns it into a profit of roughly Rs 48 per unit. Getting there is a volume and operations problem, not a pricing problem, which is exactly why the model is a hub, not a bigger version of the same small centre.</p>
+      <p class="fine">Plasma yield assumed at 0.2 litres per 450ml donation, a standard clinical approximation, at the Rs 1,600 per litre fractionator price actually paid for surplus plasma in India (see sources).</p>
+    </div>
+
+    <div class="callout reveal">
+      <h4 data-i18n="econ_capex_title">Capital cost is real, and it does not pretend to be self-funding on day one.</h4>
+      <p>An advanced hub &mdash; NAT platform, component separation, apheresis, cold chain &mdash; costs an estimated Rs 1.5 to 4 crore to set up. At a Rs 41 margin per unit, one hub would need roughly <strong>88,000 donations in a single year</strong> just to amortise a mid-range Rs 2.5 crore build over seven years, before covering any of its own operating margin twice over. That is too high a bar to clear from a standing start.</p>
+      <p>So the model is explicit about sequencing: capital cost is funded once, by CSR or grant capital, the way public health infrastructure normally is. What has to be self-sustaining is the day-to-day operating economics after that: processing fees plus fractionator plasma revenue covering the ongoing cost of running the hub, without donor payment and without raising the price a patient pays.</p>
+    </div>
+
+    <div class="calculator reveal">
+      <div class="calc-head">
+        <div>
+          <h3 data-i18n="calc_title">Try your own assumptions</h3>
+          <p data-i18n="calc_intro">This runs the same arithmetic as the grid above for the fractionator route. The clinical-only baseline isn&rsquo;t reproduced here since it works on a flat Rs 300 per-unit fee, not a per-litre market price, so the two aren&rsquo;t the same kind of number.</p>
+        </div>
+        <div class="segmented" id="centreToggle">
+          <button data-centre="private" class="active" data-i18n="econ_private">Private-rate centre</button>
+          <button data-centre="government" data-i18n="econ_govt">Government-rate centre</button>
+        </div>
+      </div>
+      <div class="calc-body">
+        <div class="calc-controls">
+          <div class="calc-field">
+            <label><span data-i18n="calc_redfee">Red cell processing fee</span><span class="val" id="valRedFee">Rs 1,550</span></label>
+            <input type="range" id="calcRedFee" min="1100" max="1550" step="10" value="1550">
+          </div>
+          <div class="calc-field">
+            <label><span data-i18n="calc_plasmaprice">Plasma price to fractionator, per litre</span><span class="val" id="valPlasmaPrice">Rs 1,600</span></label>
+            <input type="range" id="calcPlasmaPrice" min="800" max="2200" step="20" value="1600">
+          </div>
+          <div class="calc-field">
+            <label><span data-i18n="calc_plasmavol">Plasma sold per donation</span><span class="val" id="valPlasmaVol">0.20 L</span></label>
+            <input type="range" id="calcPlasmaVol" min="0.10" max="0.30" step="0.01" value="0.20">
+          </div>
+          <div class="calc-field">
+            <label><span data-i18n="calc_basecost">Base processing cost per donation</span><span class="val" id="valBaseCost">Rs 1,829</span></label>
+            <input type="range" id="calcBaseCost" min="1300" max="1829" step="5" value="1829">
+          </div>
+          <div class="calc-field">
+            <label><span data-i18n="calc_costcut">Cost cut from hub-scale volume</span><span class="val" id="valCostCut">0%</span></label>
+            <input type="range" id="calcCostCut" min="0" max="30" step="1" value="0">
+          </div>
+        </div>
+        <div class="calc-out">
+          <div class="row"><span data-i18n="calc_redcells_out">Red cells</span><b id="outRedCells">Rs 1,550</b></div>
+          <div class="row"><span data-i18n="calc_plasmarev_out">Plasma revenue</span><b id="outPlasmaRev">Rs 320</b></div>
+          <div class="row"><span data-i18n="calc_effcost_out">Effective cost</span><b id="outEffCost">Rs 1,829</b></div>
+          <div class="margin-row"><span data-i18n="calc_margin_out">Margin per unit</span><span class="val" id="outMargin">+Rs 41</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section id="compliance">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_compliance">Compliance</span>
+      <h2 data-i18n="compliance_h2">Why this does not commercialize blood</h2>
+      <p data-i18n="compliance_intro">Paying for blood is illegal in India for good reason, and the incentive risk in any plasma-revenue model is real: an operator paid for volume has a reason to over-collect. Rudhira is built to remove that incentive structurally, not promise to resist it.</p>
+    </div>
+    <div class="pillar-grid reveal">
+      <div class="pillar"><span class="idx">01</span><h4 data-i18n="pillar1_title">The donor is never paid</h4><p data-i18n="pillar1_body">Every unit is collected through voluntary, unpaid donation drives. No fee, discount, or incentive is tied to donating, which keeps the model on the correct side of the Supreme Court&rsquo;s direction to phase out professional donation entirely.</p></div>
+      <div class="pillar"><span class="idx">02</span><h4 data-i18n="pillar2_title">The patient pays the same capped fee</h4><p data-i18n="pillar2_body">Hospitals are charged the same NBTC-ceiling processing fee they would pay any blood centre. Plasma revenue does not raise the clinical price, and it does not buy any hospital preferential access to red cells.</p></div>
+      <div class="pillar"><span class="idx">03</span><h4 data-i18n="pillar3_title">Blood itself is never sold</h4><p data-i18n="pillar3_body">The only product transferred for revenue is plasma that has already been documented as surplus to clinical need, ahead of a fixed pre-expiry cutoff, into the fractionation channel NBTC guidelines already permit.</p></div>
+      <div class="pillar"><span class="idx">04</span><h4 data-i18n="pillar4_title">Clinical demand has first claim, always</h4><p data-i18n="pillar4_body">The surplus ratio &mdash; the share of collected plasma ever routed to a fractionator &mdash; is capped, audited, and published. No plasma is withheld from a hospital that needs it in order to sell it elsewhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARDS -->
+<section id="loyalty">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_rewards">Rewards</span>
+      <h2 data-i18n="rewards_h2">Donors get value, not payment</h2>
+      <p data-i18n="rewards_intro"><em>Common Cause v. Union of India</em> (1996) is unambiguous: blood and plasma can never be bought or sold, and no donor reward can be cash, a cash-equivalent, or a discount tied to donating. Rudhira&rsquo;s donor program is built entirely from non-monetary rewards &mdash; health services, recognition, and priority access &mdash; across four tiers keyed to donation frequency in a rolling 12-month window.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr>
+          <th data-i18n="th_tier">Tier</th><th data-i18n="th_threshold">Threshold (rolling 12 months)</th>
+          <th data-i18n="th_health">Health benefit</th><th data-i18n="th_other">Other benefits</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="tier-cell"><span class="tier-dot bronze"></span><span data-i18n="tier_bronze">Bronze</span></td><td>1st donation</td><td>Baseline screening on every donation: haemoglobin, blood pressure, weight, pulse</td><td>Digital donor certificate, donor badge</td></tr>
+          <tr><td class="tier-cell"><span class="tier-dot silver"></span><span data-i18n="tier_silver">Silver</span></td><td>2 to 3 donations</td><td>+ one free annual basic panel: CBC, blood sugar, cholesterol</td><td>Priority queue at donation camps, donor community access</td></tr>
+          <tr><td class="tier-cell"><span class="tier-dot gold"></span><span data-i18n="tier_gold">Gold</span></td><td>4 to 5 donations, the medical ceiling for whole blood</td><td>+ one free annual comprehensive panel: CBC, lipid profile, liver and kidney function, thyroid, with priority scheduling at partner diagnostic centres</td><td>Featured recognition in the newsletter and on social media, with consent, plus early access to camps</td></tr>
+          <tr><td class="tier-cell"><span class="tier-dot elite"></span><span data-i18n="tier_elite">Plasma Elite</span></td><td>6+ donations on the plasma or apheresis track</td><td>+ the Gold panel plus ECG and a vitamin and mineral panel, plus micro health-insurance for donation-related complications</td><td>VIP recognition, a seat on the donor advisory council</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="essay" style="margin-top:40px">
+      <div>
+        <div class="card-grid-3" style="grid-template-columns:1fr">
+          <div class="info-card"><h4>The window rolls, it does not reset on a fixed date</h4><p>Every verified donation recalculates the donor&rsquo;s tier from a trailing 365-day count, not a calendar year. An upgrade applies the moment a threshold is crossed. A downgrade only takes effect if the count is still short 30 days later, so one slow month does not cost a donor their tier.</p></div>
+          <div class="info-card"><h4>Every entitlement is dated, it never stacks</h4><p>Each tier&rsquo;s checkup benefit is issued once per 12-month cycle, not once per donation. It has to be booked at a partner diagnostic centre inside that cycle or it lapses; unused entitlements do not carry over or accumulate.</p></div>
+          <div class="info-card"><h4>Donation counts come from the blood bank, never from the donor</h4><p>A donation only counts toward tier progress once a partner blood bank or camp confirms it through the platform. Nothing a donor enters in the app can move their own tier.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="app-cards" style="grid-template-columns:1fr">
+          <div class="app-card"><span class="badge" data-i18n="app_silver_title">SILVER</span><p data-i18n="app_silver_body">You&rsquo;re a Silver donor. Beyond your basic screening, you&rsquo;ve unlocked one free annual health panel and priority queuing at camps.</p></div>
+          <div class="app-card"><span class="badge" data-i18n="app_elite_title">PLASMA ELITE</span><p data-i18n="app_elite_body">You&rsquo;re Plasma Elite, our most committed donor track. Your full annual health package and donation-related micro-insurance are active.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:56px;margin-bottom:24px">
+      <h3 style="font-size:22px" data-i18n="impact_h3">Every donor hears what their donation did</h3>
+      <p>The cheapest reward on this list is the one donors ask for most: knowing the donation was actually used. Rudhira sends a de-identified impact message once a unit is issued, to every donor at every tier including Bronze.</p>
+    </div>
+    <div class="impact-cards reveal">
+      <div class="impact-card"><span class="tag" data-i18n="impact_on_issue_tag">ON ISSUE</span><p data-i18n="impact_on_issue_body">Your donation of 12 March was issued to a partner hospital in Nagpur and separated into three components, supporting up to three patients.</p></div>
+      <div class="impact-card"><span class="tag" data-i18n="impact_milestone_tag">AT MILESTONE</span><p data-i18n="impact_milestone_body">Across six donations this year, your contributions have supported up to eighteen patients, and your recovered plasma has gone toward plasma-derived medicines.</p></div>
+      <div class="impact-card"><span class="tag" data-i18n="impact_relayed_tag">RELAYED NOTE</span><p data-i18n="impact_relayed_body">A transfusion recipient asked their hospital to pass a thank-you note to the donors who helped them. It has been forwarded to you with every identifying detail removed.</p></div>
+    </div>
+    <p class="lede" style="margin-top:28px;font-size:14.5px">No patient name, condition, or outcome is ever included &mdash; health information is personal data under the DPDP Act, 2023. Wording is always &ldquo;supported up to three patients&rdquo;, never &ldquo;saved this person&rdquo;: one donation separates into components that go to different patients, a trauma case may draw on ten or more donors, and pooled plasma becomes medicine only after mixing with thousands of other donations. None of this is a payment or cash-equivalent.</p>
+  </div>
+</section>
+
+<!-- PILOT CITY -->
+<section id="city">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_city">Pilot city</span>
+      <h2 data-i18n="city_h2">Where the pilot goes</h2>
+      <p data-i18n="city_intro">Three candidates, compared on the state&rsquo;s existing blood-bank density, metro population, and whether this exact transaction has already happened there.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr>
+          <th data-i18n="th_city">City</th><th data-i18n="th_state">State</th><th data-i18n="th_metro">Metro population</th>
+          <th data-i18n="th_banks">Licensed blood banks in state</th><th data-i18n="th_precedent">Precedent</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="hero-cell">Nagpur</td><td>Maharashtra</td><td>3.17M</td><td>370, highest of any state</td><td>AIIMS Nagpur has already sold over 1,000 litres of surplus plasma to a fractionator, RTI-disclosed</td></tr>
+          <tr><td class="hero-cell">Indore</td><td>Madhya Pradesh</td><td>3.48M</td><td>133 as of the last national assessment</td><td>None found</td></tr>
+          <tr><td class="hero-cell">Coimbatore</td><td>Tamil Nadu</td><td>3.22M</td><td>265 as of the last national assessment</td><td>None found</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout city-verdict reveal">
+      <h4 data-i18n="city_verdict_title">The pilot goes to Nagpur, and precedent is the reason, not population.</h4>
+      <p>Indore&rsquo;s metro area is larger, and Tamil Nadu has more licensed blood banks than Madhya Pradesh, but neither has a documented instance of a public institution actually selling surplus plasma to a fractionator. Nagpur does. That means the legal, logistical, and institutional channel this whole model depends on has already been used once in this exact city, by a public hospital, with the transaction disclosed under RTI. A first pilot should spend its risk budget on proving the hub-and-spoke economics, not on being the first to test whether the fractionator channel works at all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="nav_roadmap">Roadmap</span>
+      <h2 data-i18n="roadmap_h2">Path to viability</h2>
+      <p data-i18n="roadmap_intro">Capital first, then operations, then replication, laid out month by month so there is a checkable exit condition at every stage, not just at the end of the year.</p>
+    </div>
+    <div class="roadmap reveal">
+      <div class="stage"><div class="time" data-i18n="stage1_time">Month 1</div><h4 data-i18n="stage1_title">Close capital and lock the offtake agreement</h4><p data-i18n="stage1_body">Raise Rs 1.5 to 4 crore in CSR or grant capital, select the pilot city, and sign a standing offtake agreement with a licensed Indian fractionator before construction starts, not after, so the plasma revenue line is contracted, not assumed.</p></div>
+      <div class="stage"><div class="time" data-i18n="stage2_time">Months 2 to 3</div><h4 data-i18n="stage2_title">Build the hub</h4><p data-i18n="stage2_body">Install the NAT platform, component-separation equipment, and cold chain; hire and train staff; begin the NABL accreditation process in parallel rather than after opening.</p></div>
+      <div class="stage"><div class="time" data-i18n="stage3_time">Months 4 to 5</div><h4 data-i18n="stage3_title">Onboard the first spokes</h4><p data-i18n="stage3_body">Bring three to five mobile collection drives &mdash; college, corporate, and residential &mdash; online against the hub, and start pooled component separation with the surplus-tracking log running from day one.</p></div>
+      <div class="stage"><div class="time" data-i18n="stage4_time">Month 6</div><h4 data-i18n="stage4_title">First plasma shipment and first public report</h4><p data-i18n="stage4_body">Ship the first batch of documented-surplus plasma to the fractionator, and publish the first quarterly report on the surplus ratio and per-unit margin, the same reporting format for the whole pilot.</p></div>
+      <div class="stage"><div class="time" data-i18n="stage5_time">Months 7 to 9</div><h4 data-i18n="stage5_title">Scale spokes, stress-test the audit</h4><p data-i18n="stage5_body">Add spokes as capacity allows, publish the second quarterly report, and treat any gap between the modeled and measured surplus ratio as a finding to correct, not a number to smooth over.</p></div>
+      <div class="stage"><div class="time" data-i18n="stage6_time">Months 10 to 12</div><h4 data-i18n="stage6_title">Confirm operating breakeven</h4><p data-i18n="stage6_body">Compile a full year of operating data and confirm the hub clears breakeven on processing fees and plasma revenue alone, independent of the capital already spent.</p></div>
+      <div class="stage"><div class="time" data-i18n="stage7_time">Month 13 onward</div><h4 data-i18n="stage7_title">Replicate to a second city</h4><p data-i18n="stage7_body">Only once the first hub&rsquo;s numbers are public and independently verifiable, license the same hub design, offtake structure, and audit process to a second city, funded this time in part by the first hub&rsquo;s own operating surplus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="risks_h2">Risks</span>
+      <h2 data-i18n="risks_h2">What could break this</h2>
+      <p data-i18n="risks_intro">Stated plainly, because a judge will ask anyway.</p>
+    </div>
+    <div class="risk-list reveal">
+      <div class="risk-pair">
+        <div class="risk-cell"><span class="k" data-i18n="risk1_label">Risk</span><p data-i18n="risk1_body">A single fractionator relationship gives the buyer pricing power over the hub&rsquo;s margin line.</p></div>
+        <div class="mitigation-cell"><span class="k" data-i18n="mitigation1_label">Mitigation</span><p data-i18n="mitigation1_body">Contract with more than one fractionator where possible, and treat the Rs 320 plasma line as upside on top of a model that must clear breakeven on the capped processing fee and volume alone.</p></div>
+      </div>
+      <div class="risk-pair">
+        <div class="risk-cell"><span class="k" data-i18n="risk1_label">Risk</span><p data-i18n="risk2_body">Plasma revenue creates an incentive to collect more than clinically needed.</p></div>
+        <div class="mitigation-cell"><span class="k" data-i18n="mitigation1_label">Mitigation</span><p data-i18n="mitigation2_body">Cap and publish the surplus ratio quarterly; route to the fractionator only after a fixed pre-expiry cutoff with unissued status logged, not at collection.</p></div>
+      </div>
+      <div class="risk-pair">
+        <div class="risk-cell"><span class="k" data-i18n="risk1_label">Risk</span><p data-i18n="risk3_body">The volume-driven cost reduction the government-rate scenario needs is a modeled assumption, not yet a measured one.</p></div>
+        <div class="mitigation-cell"><span class="k" data-i18n="mitigation1_label">Mitigation</span><p data-i18n="mitigation3_body">Treat this as the first thing the pilot hub measures. If the reduction does not materialise, the government-rate segment is deprioritised in favour of private-rate centres, where the model already clears breakeven without it.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASK + FOOTER -->
+<section id="ask">
+  <div class="container">
+    <div class="ask-panel reveal">
+      <div>
+        <h2 data-i18n="ask_h2">What we are asking for</h2>
+        <p data-i18n="ask_body">A pilot: one hub, three to five spokes, one fractionator offtake agreement, one hospital network, twelve months, with quarterly public reporting on the surplus ratio and the per-unit margin.</p>
+      </div>
+      <a class="btn btn-primary" href="join.html" data-i18n="nav_join">Join the network</a>
+    </div>
+
+    <div class="footer-meta reveal">
+      <div class="footer-team-block">
+        <div class="footer-mark">R</div>
+        <div>
+          <div class="t" data-i18n="footer_team">Team Rudhira</div>
+          <div class="s" data-i18n="footer_org">Blood and Plasma Supply Chain &middot; Entrepreneurship Cell, IIT (ISM) Dhanbad</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:17px;margin-top:48px" data-i18n="sources_h2">Sources and methodology</h3>
+    <ol class="sources-list">
+      <li>NBTC processing-fee ceilings for whole blood and red cells: <a href="https://thehealthmaster.com/2022/06/08/rs-1050-per-unit-for-whole-blood/">thehealthmaster.com reporting on state blood transfusion council rates</a> and the <a href="https://www.naco.gov.in/sites/default/files/Guidelines%20on%20recovery%20of%20Processing%20Charges%20for%20Blood%20&%20Blood%20Components.pdf">NACO guidelines on recovery of processing charges</a>.</li>
+      <li>Fresh frozen plasma wastage, over 3 lakh units in a reported year, more than half of national blood-component discards: <a href="https://english.newsnationtv.com/lifestyle/health-and-fitness/6-lakh-litres-of-blood-wasted-in-five-years-in-india-serious-loopholes-in-blood-banking-system-exposed-169373.html">News Nation reporting on national blood-bank discard data</a>.</li>
+      <li>Rs 1,600 per litre paid for surplus plasma: <a href="https://medicaldialogues.in/news/health/hospital-diagnostics/aiims-nagpur-sold-over-1000-litres-of-surplus-plasma-for-rs-1644-lakh-rti-reveals-174685">Medical Dialogues, RTI disclosure on AIIMS Nagpur&rsquo;s plasma sale</a>.</li>
+      <li>Per-unit cost of blood with component preparation and NAT testing (Rs 1,829): <a href="https://pubmed.ncbi.nlm.nih.gov/32425391/">Activity-wise unit cost of blood components, Indian Journal of Hematology and Blood Transfusion, 2018 data</a>.</li>
+      <li>Blood centre setup costs by tier: <a href="https://www.adrine.in/blog/how-to-start-blood-bank-india">Adrine, how to start a blood bank in India</a>.</li>
+      <li>National plasma supply and fractionation capacity: <a href="https://www.investindia.gov.in/team-india-blogs/overview-blood-plasma-fractionation-india">Invest India, overview of blood plasma fractionation in India</a>.</li>
+      <li>India plasma fractionation market size and growth: <a href="https://www.mordorintelligence.com/industry-reports/india-plasma-fractionation-market">Mordor Intelligence, India plasma fractionation market report</a>.</li>
+      <li>Licensed blood banks by state (Maharashtra, Madhya Pradesh, Tamil Nadu): <a href="https://www.statista.com/statistics/1405855/india-licensed-blood-banks-by-state/">Statista, India licensed blood banks by state, 2022</a> and the <a href="https://naco.gov.in/sites/default/files/Assessment%20of%20Blood%20Banks%20in%20India%20-%202016.pdf">NACO Assessment of Blood Banks in India, 2016</a>.</li>
+      <li>Metro population figures for Nagpur, Indore, and Coimbatore: <a href="https://www.macrotrends.net/global-metrics/cities/21347/nagpur/population">Macrotrends, Nagpur</a>, <a href="https://www.macrotrends.net/global-metrics/cities/21278/indore/population">Macrotrends, Indore</a>, and <a href="https://en.wikipedia.org/wiki/Coimbatore_metropolitan_area">Coimbatore metropolitan area, Wikipedia</a>.</li>
+    </ol>
+    <p style="font-size:12.5px;color:var(--fg-faint);margin-top:16px;max-width:760px">Figures above are sourced as cited. Two figures on this page are explicitly modeled, not sourced, and are labelled inline where they appear: the per-unit cost reduction from hub-scale consolidation, and the seven-year straight-line capex amortisation used to estimate breakeven volume. Both are stated as assumptions for a pilot to test, not as claims.</p>
+
+    <div class="footer-tag">
+      <span data-i18n="footer_tag">Blood is never sold. Only surplus plasma, under an NBTC-sanctioned channel.</span>
+      <span>&copy; 2026 Team Rudhira</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="translations.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
