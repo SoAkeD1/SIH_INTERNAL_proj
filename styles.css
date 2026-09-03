@@ -144,8 +144,16 @@ nav.primary a:hover{color:var(--fg);text-decoration:none}
 .hero-media{
   position:relative;width:100%;height:min(78vh,720px);min-height:460px;overflow:hidden;
 }
-.hero-media image-slot{position:absolute;inset:0;width:100%;height:100%;border-radius:0}
-.hero-media image-slot::part(empty){justify-content:flex-start;padding-top:12%}
+.hero-media .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0}
+.hero-credit{
+  position:absolute;left:8px;bottom:8px;z-index:2;margin:0;
+  padding:3px 8px;border-radius:5px;
+  background:oklch(0% 0 0 / 0.5);backdrop-filter:blur(6px);
+  font:10px/1.2 var(--sans);color:oklch(100% 0 0 / 0.82);
+  max-width:calc(100% - 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.hero-credit a{color:inherit;text-decoration:none}
+.hero-credit a:hover{text-decoration:underline}
 .hero-scrim{
   position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg, oklch(15% 0.005 264 / 0) 0%, oklch(15% 0.005 264 / 0.1) 55%, oklch(15% 0.005 264 / 0.88) 100%);
