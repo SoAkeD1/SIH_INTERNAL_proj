@@ -213,6 +213,8 @@
   <span data-i18n="join_foot">Rudhira &middot; Blood and Plasma Supply Chain, E-Cell, IIT (ISM) Dhanbad</span>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
 <script src="translations.js"></script>
 <script>
 (function(){
@@ -222,6 +224,16 @@
   var lang = "en";
 
   function t(key){ var e = dict[key]; return e ? (e[lang] || e.en) : ""; }
+
+  /* ---- Supabase client ---- */
+  var sb = null;
+  if(window.SUPABASE_READY && window.supabase){
+    sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+    // already signed in? go straight to the dashboard
+    sb.auth.getSession().then(function(res){
+      if(res && res.data && res.data.session) location.replace("dashboard.html");
+    });
+  }
 
   /* ---- Theme (shared with the main site via localStorage) ---- */
   var themeBtn = document.getElementById("themeToggle");
@@ -301,28 +313,79 @@
     eye.setAttribute("aria-label", reveal ? "Hide password" : "Show password");
   });
 
-  /* ---- Demo submit (static front-end, no backend) ---- */
+  /* ---- Notices ---- */
   function showNotice(key, isErr){
-    notice.dataset.key = key;
+    notice.dataset.key = key; delete notice.dataset.raw;
     notice.textContent = t(key);
     notice.classList.toggle("err", !!isErr);
     notice.hidden = false;
   }
-  function hideNotice(){ notice.hidden = true; delete notice.dataset.key; }
+  function showRaw(text, isErr){
+    delete notice.dataset.key; notice.dataset.raw = "1";
+    notice.textContent = text;
+    notice.classList.toggle("err", !!isErr);
+    notice.hidden = false;
+  }
+  function hideNotice(){ notice.hidden = true; delete notice.dataset.key; delete notice.dataset.raw; }
 
+  function setBusy(on){
+    submitBtn.disabled = on;
+    submitBtn.style.opacity = on ? ".65" : "";
+    submitBtn.textContent = on ? t("join_busy") : t(submitBtn.getAttribute("data-i18n"));
+  }
+
+  /* ---- Auth submit (Supabase) ---- */
   card.addEventListener("submit", function(ev){
     ev.preventDefault();
     var email = document.getElementById("email").value.trim();
     var pass = document.getElementById("password").value;
-    if(!email || !pass){
-      showNotice("join_notice_fill", true);
-      return;
+    if(!email || !pass){ showNotice("join_notice_fill", true); return; }
+
+    if(!sb){ showNotice("join_demo_notice", false); return; }
+
+    var mode = card.getAttribute("data-mode");
+    var role = card.getAttribute("data-role");
+    setBusy(true);
+
+    if(mode === "register"){
+      var meta = { role: role };
+      var nameEl = document.getElementById("fullName");
+      var orgEl = document.getElementById("org");
+      if(role === "donor" && nameEl.value.trim()) meta.full_name = nameEl.value.trim();
+      if(role !== "donor" && orgEl.value.trim()) meta.org_name = orgEl.value.trim();
+
+      sb.auth.signUp({ email: email, password: pass, options: { data: meta } }).then(function(res){
+        setBusy(false);
+        if(res.error){ showRaw(res.error.message, true); return; }
+        if(res.data && res.data.session){ location.href = "dashboard.html"; }
+        else { showNotice("join_notice_confirm", false); }   // email-confirm is on
+      });
+    } else {
+      sb.auth.signInWithPassword({ email: email, password: pass }).then(function(res){
+        setBusy(false);
+        if(res.error){ showRaw(res.error.message, true); return; }
+        location.href = "dashboard.html";
+      });
     }
-    showNotice("join_demo_notice", false);
   });
+
+  /* ---- Google ---- */
   document.getElementById("googleBtn").addEventListener("click", function(){
-    showNotice("join_demo_notice", false);
+    if(!sb){ showNotice("join_demo_notice", false); return; }
+    sb.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: location.origin + "/dashboard.html" }
+    }).then(function(res){
+      if(res.error) showNotice("join_notice_google", true);
+    });
   });
+
+  /* ---- OAuth return: land here with a session in the URL, then bounce ---- */
+  if(sb && /access_token=|code=/.test(location.hash + location.search)){
+    sb.auth.getSession().then(function(res){
+      if(res && res.data && res.data.session) location.replace("dashboard.html");
+    });
+  }
 })();
 </script>
 </body>

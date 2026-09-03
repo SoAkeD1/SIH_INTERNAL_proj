@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard &middot; Rudhira</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0e0e11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{min-height:100vh;display:flex;flex-direction:column}
+  .dash-top{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:16px var(--gutter);border-bottom:1px solid var(--border-soft);
+    background:color-mix(in oklab,var(--bg) 88%,transparent);position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+  }
+  .dash-actions{display:flex;align-items:center;gap:10px}
+  .dash-role{
+    font:700 10px var(--sans);letter-spacing:.09em;text-transform:uppercase;
+    color:var(--accent-strong);border:1px solid var(--accent);border-radius:20px;padding:4px 10px;
+  }
+  .dash-main{flex:1;max-width:var(--container);width:100%;margin:0 auto;padding:44px var(--gutter) 72px}
+  .dash-main[hidden]{display:none}
+
+  .dash-welcome{margin-bottom:34px}
+  .dash-welcome h1{font-size:clamp(24px,3.2vw,32px);line-height:1.15;margin-bottom:10px}
+  .dash-sub{color:var(--fg-muted);font-size:15px}
+  .dash-sub b{color:var(--fg);font-weight:600}
+
+  .dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .dash-card{
+    border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-elev);padding:24px;
+  }
+  .dash-card h3{font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:12px}
+  .dash-metric{font:600 30px/1 var(--serif);color:var(--accent-strong);margin-bottom:10px;font-variant-numeric:tabular-nums}
+  .dash-card p{font-size:13.5px;color:var(--fg-muted);line-height:1.5}
+
+  .dash-grid[data-role="donor"] .role-hospital,
+  .dash-grid[data-role="donor"] .role-fractionator,
+  .dash-grid[data-role="hospital"] .role-donor,
+  .dash-grid[data-role="hospital"] .role-fractionator,
+  .dash-grid[data-role="fractionator"] .role-donor,
+  .dash-grid[data-role="fractionator"] .role-hospital{display:none}
+
+  .dash-note{
+    margin-top:28px;padding:14px 16px;border-radius:var(--radius);font-size:13px;line-height:1.55;
+    background:var(--accent-soft-2);border:1px solid var(--border-soft);color:var(--fg-muted);max-width:760px;
+  }
+
+  @media(max-width:900px){ .dash-grid{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){
+    .dash-grid{grid-template-columns:1fr}
+    .dash-top{padding:14px 16px}
+    .dash-main{padding:32px 16px 56px}
+  }
+</style>
+</head>
+<body>
+
+<header class="dash-top">
+  <a class="brand" href="index.html">
+    <span class="mark">R</span>
+    <span>Rudhira</span>
+    <span class="devanagari">&#2352;&#2369;&#2343;&#2367;&#2352;</span>
+  </a>
+  <div class="dash-actions">
+    <span class="dash-role" id="roleBadge">&nbsp;</span>
+    <button class="icon-btn" id="langToggle" type="button" aria-label="Switch language" title="Switch language">EN</button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch theme" title="Switch theme">&#9728;</button>
+    <button class="btn btn-ghost btn-sm" id="signOutBtn" type="button" data-i18n="dash_signout">Sign out</button>
+  </div>
+</header>
+
+<main class="dash-main" id="dashMain" hidden>
+  <div class="dash-welcome">
+    <h1 data-i18n="dash_welcome">Welcome to your Rudhira dashboard</h1>
+    <p class="dash-sub"><span data-i18n="dash_signed_as">Signed in as</span> <b id="userEmail">&hellip;</b></p>
+  </div>
+
+  <div class="dash-grid" id="dashGrid" data-role="donor">
+    <!-- donor -->
+    <div class="dash-card role-donor"><h3 data-i18n="dash_d1_t">Your donations</h3><p class="dash-metric">0</p><p data-i18n="dash_d1_b">Whole-blood and plasma donations logged to your account.</p></div>
+    <div class="dash-card role-donor"><h3 data-i18n="dash_d2_t">Current tier</h3><p class="dash-metric" data-i18n="dash_d2_v">Bronze</p><p data-i18n="dash_d2_b">Recalculated from a trailing 365-day count.</p></div>
+    <div class="dash-card role-donor"><h3 data-i18n="dash_d3_t">Impact</h3><p class="dash-metric">&mdash;</p><p data-i18n="dash_d3_b">De-identified notes on where your units went, once issued.</p></div>
+    <!-- hospital -->
+    <div class="dash-card role-hospital"><h3 data-i18n="dash_h1_t">Component orders</h3><p class="dash-metric">&mdash;</p><p data-i18n="dash_h1_b">Order red cells, platelets and plasma at the NBTC-capped fee.</p></div>
+    <div class="dash-card role-hospital"><h3 data-i18n="dash_h2_t">Surplus-plasma reports</h3><p class="dash-metric">&mdash;</p><p data-i18n="dash_h2_b">Quarterly surplus ratio and per-unit margin for your network.</p></div>
+    <div class="dash-card role-hospital"><h3 data-i18n="dash_h3_t">Fee schedule</h3><p class="dash-metric">&mdash;</p><p data-i18n="dash_h3_b">The capped processing fees you are charged, by component.</p></div>
+    <!-- fractionator -->
+    <div class="dash-card role-fractionator"><h3 data-i18n="dash_f1_t">Offtake agreements</h3><p class="dash-metric">&mdash;</p><p data-i18n="dash_f1_b">Standing agreements and contracted volumes with each hub.</p></div>
+    <div class="dash-card role-fractionator"><h3 data-i18n="dash_f2_t">Documented-surplus shipments</h3><p class="dash-metric">&mdash;</p><p data-i18n="dash_f2_b">Plasma logged as unissued past the pre-expiry cutoff, ready to ship.</p></div>
+  </div>
+
+  <p class="dash-note" data-i18n="dash_note">Live data connects once the pilot hub is operating &mdash; this screen confirms your account and role; the workflow tools come next.</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.115.0/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="translations.js"></script>
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var dict = window.RUDHIRA_I18N || {};
+  var lang = "en";
+  function t(key){ var e = dict[key]; return e ? (e[lang] || e.en) : ""; }
+
+  /* ---- Theme ---- */
+  var themeBtn = document.getElementById("themeToggle");
+  function applyTheme(x){
+    root.setAttribute("data-theme", x);
+    themeBtn.textContent = x === "light" ? "☾" : "☀";
+    try{ localStorage.setItem("rudhira-theme", x); }catch(e){}
+  }
+  var st = null; try{ st = localStorage.getItem("rudhira-theme"); }catch(e){}
+  applyTheme(st || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+  themeBtn.addEventListener("click", function(){
+    applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+  });
+
+  /* ---- Language ---- */
+  var langBtn = document.getElementById("langToggle");
+  function applyLang(l){
+    lang = (l === "hi") ? "hi" : "en";
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var e = dict[el.getAttribute("data-i18n")];
+      if(e) el.textContent = e[lang] || e.en;
+    });
+    root.setAttribute("lang", lang);
+    langBtn.textContent = lang === "hi" ? "हिं" : "EN";
+    try{ localStorage.setItem("rudhira-lang", lang); }catch(e){}
+    var rb = document.getElementById("roleBadge");
+    if(rb.dataset.role) rb.textContent = t("join_role_" + rb.dataset.role);
+  }
+  var sl = null; try{ sl = localStorage.getItem("rudhira-lang"); }catch(e){}
+  applyLang(sl === "hi" ? "hi" : "en");
+  langBtn.addEventListener("click", function(){ applyLang(lang === "hi" ? "en" : "hi"); });
+
+  /* ---- Gate on a live Supabase session ---- */
+  var sb = (window.SUPABASE_READY && window.supabase)
+    ? window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY)
+    : null;
+
+  if(!sb){ location.replace("join.html"); return; }
+
+  sb.auth.getSession().then(function(res){
+    var session = res && res.data && res.data.session;
+    if(!session){ location.replace("join.html"); return; }
+
+    var user = session.user || {};
+    var meta = user.user_metadata || {};
+    var role = ["donor","hospital","fractionator"].indexOf(meta.role) >= 0 ? meta.role : "donor";
+
+    document.getElementById("userEmail").textContent = user.email || "—";
+    var rb = document.getElementById("roleBadge");
+    rb.dataset.role = role;
+    rb.textContent = t("join_role_" + role);
+    document.getElementById("dashGrid").setAttribute("data-role", role);
+
+    document.getElementById("dashMain").hidden = false;
+  });
+
+  sb.auth.onAuthStateChange(function(evt){
+    if(evt === "SIGNED_OUT") location.replace("index.html");
+  });
+
+  document.getElementById("signOutBtn").addEventListener("click", function(){
+    sb.auth.signOut().then(function(){ location.href = "index.html"; });
+  });
+})();
+</script>
+</body>
+</html>

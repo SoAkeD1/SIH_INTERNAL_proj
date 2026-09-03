@@ -337,5 +337,32 @@ window.RUDHIRA_I18N = {
   join_guest: { en: "Skip for now, continue as guest", hi: "अभी छोड़ें, अतिथि के रूप में जारी रखें" },
   join_notice_fill: { en: "Enter your email and password to continue.", hi: "जारी रखने के लिए अपना ईमेल और पासवर्ड दर्ज करें।" },
   join_demo_notice: { en: "Thanks — the Rudhira network isn't taking live sign-ups yet. This is a pilot-stage demo.", hi: "धन्यवाद — रुधिर नेटवर्क अभी लाइव साइन-अप नहीं ले रहा। यह पायलट-चरण का डेमो है।" },
-  join_foot: { en: "Rudhira · Blood and Plasma Supply Chain, E-Cell, IIT (ISM) Dhanbad", hi: "रुधिर · रक्त एवं प्लाज़्मा सप्लाई चेन, ई-सेल, IIT (ISM) धनबाद" }
+  join_busy: { en: "Please wait…", hi: "कृपया प्रतीक्षा करें…" },
+  join_notice_confirm: { en: "Check your email to confirm the account, then sign in.", hi: "खाता पुष्टि करने के लिए अपना ईमेल देखें, फिर साइन इन करें।" },
+  join_notice_google: { en: "Google sign-in isn't set up yet — use email and password.", hi: "Google साइन-इन अभी सेट नहीं है — ईमेल और पासवर्ड का उपयोग करें।" },
+  join_foot: { en: "Rudhira · Blood and Plasma Supply Chain, E-Cell, IIT (ISM) Dhanbad", hi: "रुधिर · रक्त एवं प्लाज़्मा सप्लाई चेन, ई-सेल, IIT (ISM) धनबाद" },
+
+  /* dashboard.html */
+  nav_dashboard: { en: "Dashboard", hi: "डैशबोर्ड" },
+  dash_signout: { en: "Sign out", hi: "साइन आउट" },
+  dash_welcome: { en: "Welcome to your Rudhira dashboard", hi: "अपने रुधिर डैशबोर्ड में आपका स्वागत है" },
+  dash_signed_as: { en: "Signed in as", hi: "साइन इन:" },
+  dash_note: { en: "Live data connects once the pilot hub is operating — this screen confirms your account and role; the workflow tools come next.", hi: "पायलट हब के संचालन में आने पर लाइव डेटा जुड़ जाएगा — यह स्क्रीन आपके खाते और भूमिका की पुष्टि करती है; कार्य-प्रवाह उपकरण आगे आएँगे।" },
+  dash_d1_t: { en: "Your donations", hi: "आपके दान" },
+  dash_d1_b: { en: "Whole-blood and plasma donations logged to your account.", hi: "आपके खाते में दर्ज संपूर्ण-रक्त और प्लाज़्मा दान।" },
+  dash_d2_t: { en: "Current tier", hi: "वर्तमान स्तर" },
+  dash_d2_v: { en: "Bronze", hi: "ब्रॉन्ज़" },
+  dash_d2_b: { en: "Recalculated from a trailing 365-day count.", hi: "पिछले 365 दिनों की गिनती से पुनर्गणना।" },
+  dash_d3_t: { en: "Impact", hi: "प्रभाव" },
+  dash_d3_b: { en: "De-identified notes on where your units went, once issued.", hi: "जारी होने पर, आपकी यूनिट कहाँ गईं, इस पर पहचान-रहित नोट।" },
+  dash_h1_t: { en: "Component orders", hi: "घटक ऑर्डर" },
+  dash_h1_b: { en: "Order red cells, platelets and plasma at the NBTC-capped fee.", hi: "NBTC-सीमित शुल्क पर लाल कोशिकाएँ, प्लेटलेट्स और प्लाज़्मा ऑर्डर करें।" },
+  dash_h2_t: { en: "Surplus-plasma reports", hi: "अतिरिक्त-प्लाज़्मा रिपोर्ट" },
+  dash_h2_b: { en: "Quarterly surplus ratio and per-unit margin for your network.", hi: "आपके नेटवर्क के लिए त्रैमासिक अतिरिक्त अनुपात और प्रति-यूनिट मार्जिन।" },
+  dash_h3_t: { en: "Fee schedule", hi: "शुल्क सूची" },
+  dash_h3_b: { en: "The capped processing fees you are charged, by component.", hi: "घटक अनुसार, आपसे ली जाने वाली सीमित प्रोसेसिंग शुल्क।" },
+  dash_f1_t: { en: "Offtake agreements", hi: "ऑफटेक समझौते" },
+  dash_f1_b: { en: "Standing agreements and contracted volumes with each hub.", hi: "प्रत्येक हब के साथ स्थायी समझौते और अनुबंधित मात्रा।" },
+  dash_f2_t: { en: "Documented-surplus shipments", hi: "दर्ज-अतिरिक्त खेप" },
+  dash_f2_b: { en: "Plasma logged as unissued past the pre-expiry cutoff, ready to ship.", hi: "समाप्ति-पूर्व सीमा के बाद अनइश्यूड दर्ज प्लाज़्मा, भेजने के लिए तैयार।" }
 };

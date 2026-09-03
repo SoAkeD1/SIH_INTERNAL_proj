@@ -38,6 +38,22 @@
     langBtn.textContent = lang === "hi" ? "\u0939\u093f\u0902" : "EN";
     localStorage.setItem("rudhira-lang", lang);
   }
+  /* If a Supabase session is present, point "Join the network" at the dashboard.
+     Checks localStorage directly so the homepage needn't load the auth client. */
+  (function(){
+    try{
+      var k = Object.keys(localStorage).filter(function(x){ return /^sb-.*-auth-token$/.test(x); })[0];
+      if(!k) return;
+      var s = JSON.parse(localStorage.getItem(k) || "null");
+      var exp = s && (s.expires_at || (s.currentSession && s.currentSession.expires_at));
+      if(!exp || exp * 1000 < Date.now()) return;
+      document.querySelectorAll('a[href="join.html"]').forEach(function(a){
+        a.setAttribute("href", "dashboard.html");
+        a.setAttribute("data-i18n", "nav_dashboard");
+      });
+    }catch(e){}
+  })();
+
   var savedLang = localStorage.getItem("rudhira-lang") || "en";
   applyLang(savedLang);
   langBtn.addEventListener("click", function(){
