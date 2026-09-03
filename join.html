@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
+  [hidden]{display:none !important}
   body{min-height:100vh;display:flex;flex-direction:column}
   .join-bg{
     position:fixed;inset:0;z-index:-1;
@@ -160,7 +161,7 @@
       <span data-i18n="join_google">Continue with Google</span>
     </button>
 
-    <div class="or-div"><span data-i18n="join_or_email">or with email</span></div>
+    <div class="or-div" id="orDiv"><span data-i18n="join_or_email">or with email</span></div>
 
     <div class="field only-register role-person">
       <label for="fullName" data-i18n="join_label_name">Full name</label>
@@ -233,6 +234,14 @@
     sb.auth.getSession().then(function(res){
       if(res && res.data && res.data.session) location.replace("dashboard.html");
     });
+  }
+
+  /* Hide the Google button unless the provider is actually enabled */
+  if(!window.SUPABASE_GOOGLE){
+    var gb = document.getElementById("googleBtn");
+    var od = document.getElementById("orDiv");
+    if(gb) gb.hidden = true;
+    if(od) od.hidden = true;
   }
 
   /* ---- Theme (shared with the main site via localStorage) ---- */
@@ -371,12 +380,15 @@
 
   /* ---- Google ---- */
   document.getElementById("googleBtn").addEventListener("click", function(){
-    if(!sb){ showNotice("join_demo_notice", false); return; }
+    if(!sb || !window.SUPABASE_GOOGLE){ showNotice("join_notice_google", true); return; }
+    // build the authorize URL without navigating, so a disabled provider
+    // shows our notice instead of Supabase's raw JSON error page
     sb.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: location.origin + "/dashboard.html" }
+      options: { redirectTo: location.origin + "/dashboard.html", skipBrowserRedirect: true }
     }).then(function(res){
-      if(res.error) showNotice("join_notice_google", true);
+      if(res.error || !(res.data && res.data.url)){ showNotice("join_notice_google", true); return; }
+      window.location.href = res.data.url;
     });
   });
 

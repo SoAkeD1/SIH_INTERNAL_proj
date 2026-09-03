@@ -10,3 +10,8 @@ window.SUPABASE_ANON_KEY = "sb_publishable_Ztd8VT_l_M3YWh79r1-DAg_sS-KbgBv";
    notice while this is false, so the site never looks broken. */
 window.SUPABASE_READY = !/^REPLACE_WITH_/.test(window.SUPABASE_URL) &&
                         !/^REPLACE_WITH_/.test(window.SUPABASE_ANON_KEY);
+
+/* Flip to true only after enabling the Google provider in
+   Supabase → Authentication → Providers → Google (needs a Google Cloud
+   OAuth client). While false, the "Continue with Google" button is hidden. */
+window.SUPABASE_GOOGLE = false;
