@@ -34,6 +34,37 @@ window.RUDHIRA_I18N = {
   stat3_num: { en: "~0.5M L", hi: "~5 लाख लीटर" },
   stat3_label: { en: "plasma available nationally for fractionation each year, roughly the rated capacity of a single Indian plant", hi: "प्रत्येक वर्ष फ्रैक्शनेशन हेतु राष्ट्रीय स्तर पर उपलब्ध प्लाज़्मा, लगभग एक भारतीय संयंत्र की रेटेड क्षमता के बराबर" },
   stat_copy: { en: "Click to copy with source", hi: "स्रोत सहित कॉपी करें" },
+  problem_p1: {
+    en: "The processing fee a blood centre may charge is fixed by the National Blood Transfusion Council. That ceiling is the ethical floor of the whole system and should not move. But it also means a centre cannot price its way out of a cost problem, which is exactly the problem most of them have.",
+    hi: "एक ब्लड सेंटर जो प्रोसेसिंग शुल्क ले सकता है, वह नेशनल ब्लड ट्रांसफ्यूज़न काउंसिल द्वारा तय होता है। यह सीमा पूरी व्यवस्था की नैतिक बुनियाद है और इसे नहीं बदलना चाहिए। लेकिन इसका अर्थ यह भी है कि कोई केंद्र क़ीमत बढ़ाकर अपनी लागत की समस्या से बाहर नहीं निकल सकता — और यही समस्या अधिकांश केंद्रों के सामने है।"
+  },
+  problem_p2: {
+    en: "A single whole-blood donation splits into three products with completely different economics. <strong>Red cells</strong> are the clinical product everyone thinks of, priced at a government-set ceiling. <strong>Platelets</strong> last five days and are hard to plan around. <strong>Plasma</strong> is the anomaly: it freezes for about a year, is produced automatically on every donation, and hospitals clinically need far less of it than gets collected.",
+    hi: "एक संपूर्ण-रक्त दान तीन उत्पादों में बँट जाता है, जिनका अर्थशास्त्र पूरी तरह अलग है। <strong>लाल रक्त कोशिकाएँ</strong> वह नैदानिक उत्पाद हैं जिनके बारे में सब सोचते हैं, जिनकी क़ीमत सरकार-निर्धारित सीमा पर तय है। <strong>प्लेटलेट्स</strong> पाँच दिन चलती हैं और उनकी योजना बनाना कठिन है। <strong>प्लाज़्मा</strong> अपवाद है: यह लगभग एक साल तक जमा रहता है, हर दान पर अपने-आप बनता है, और अस्पतालों को नैदानिक रूप से इसकी उतनी ज़रूरत नहीं होती जितना एकत्र हो जाता है।"
+  },
+  problem_p3: {
+    en: "Most Indian blood centres are small. Nearly 4,000 of them process only a few thousand units a year each, yet the fixed costs of running a centre — the nucleic acid testing (NAT) platform that screens for HIV and hepatitis, the component-separation equipment, the cold chain — barely change with volume. Small centres absorb the same fixed cost as large ones and never reach the scale to recover it.",
+    hi: "अधिकांश भारतीय ब्लड सेंटर छोटे हैं। इनमें से लगभग 4,000 केंद्र हर साल केवल कुछ हज़ार यूनिट ही संसाधित करते हैं, फिर भी एक केंद्र चलाने की स्थिर लागतें — HIV और हेपेटाइटिस की जाँच करने वाला न्यूक्लिक एसिड टेस्टिंग (NAT) प्लेटफ़ॉर्म, घटक-पृथक्करण उपकरण, कोल्ड चेन — मात्रा के साथ मुश्किल से बदलती हैं। छोटे केंद्र वही स्थिर लागत उठाते हैं जो बड़े केंद्र उठाते हैं, पर उसे वसूलने का पैमाना कभी नहीं पाते।"
+  },
+  problem_p4: {
+    en: "The result is visible in the discard data. Plasma is the component with the longest shelf life and it is still the single largest category of blood-product waste in the country, because most small centres cannot separate, freeze, and route it fast enough to reach anyone who wants it before it expires.",
+    hi: "इसका नतीजा फेंके गए रक्त के आँकड़ों में दिखता है। प्लाज़्मा सबसे लंबी शेल्फ लाइफ वाला घटक है, फिर भी यह देश में रक्त-उत्पाद बर्बादी की सबसे बड़ी अकेली श्रेणी है, क्योंकि अधिकांश छोटे केंद्र इसे इतनी तेज़ी से अलग, जमा और आगे नहीं भेज पाते कि यह समाप्त होने से पहले किसी ज़रूरतमंद तक पहुँच सके।"
+  },
+  problem_mini1_num: { en: "Rs 1,829", hi: "₹1,829" },
+  problem_mini1_desc: {
+    en: "Fully loaded cost to process one donation with component separation and NAT testing, per a published Indian tertiary-care unit-cost study.",
+    hi: "एक दान को घटक पृथक्करण और NAT परीक्षण सहित संसाधित करने की पूर्ण लागत, एक प्रकाशित भारतीय तृतीयक-देखभाल यूनिट-लागत अध्ययन के अनुसार।"
+  },
+  problem_mini2_num: { en: "Rs 1,100–1,550", hi: "₹1,100–1,550" },
+  problem_mini2_desc: {
+    en: "The NBTC processing-fee ceiling for a unit of red cells, government-run versus private centres. The only clinical revenue most centres can legally collect.",
+    hi: "लाल रक्त कोशिकाओं की एक यूनिट के लिए NBTC प्रोसेसिंग-शुल्क सीमा, सरकारी बनाम निजी केंद्रों में। यही एकमात्र नैदानिक आय है जो अधिकांश केंद्र क़ानूनन ले सकते हैं।"
+  },
+  problem_mini3_num: { en: "Rs 300", hi: "₹300" },
+  problem_mini3_desc: {
+    en: "The processing-fee ceiling for a unit of fresh frozen plasma issued for transfusion, capped low because clinical demand for plasma is genuinely limited.",
+    hi: "ट्रांसफ्यूज़न के लिए जारी ताज़ा जमी प्लाज़्मा की एक यूनिट की प्रोसेसिंग-शुल्क सीमा, जो कम रखी गई है क्योंकि प्लाज़्मा की नैदानिक माँग वास्तव में सीमित है।"
+  },
 
   fix_h2: { en: "The fix is not a collection app. It is where the plasma goes.", hi: "समाधान एक संग्रह ऐप नहीं है। यह इस बारे में है कि प्लाज़्मा कहाँ जाता है।" },
   diagram_sources: { en: "Collection drives", hi: "संग्रह अभियान" },
