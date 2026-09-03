@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the network &middot; Rudhira</title>
+<meta name="description" content="Create a Rudhira account &mdash; one login for blood centres, hospitals, and licensed fractionators on the surplus-plasma network.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{min-height:100vh;display:flex;flex-direction:column}
+  .join-bg{
+    position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(1100px 560px at 50% -8%, var(--accent-soft) 0%, transparent 62%),
+      var(--bg);
+  }
+  .join-top{display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter)}
+  .join-actions{display:flex;gap:10px}
+  .join-main{flex:1;display:flex;align-items:center;justify-content:center;padding:28px var(--gutter) 56px}
+
+  .auth-card{
+    width:100%;max-width:442px;background:var(--bg-elev);
+    border:1px solid var(--border);border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);padding:38px;
+  }
+  .auth-badge{
+    width:52px;height:52px;border-radius:14px;margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);border:1px solid var(--accent);color:var(--accent-strong);
+  }
+  .auth-badge svg{width:24px;height:24px}
+  .auth-card h1{font-size:22px;line-height:1.2;text-align:center;margin-bottom:8px}
+  .auth-sub{font-size:13.5px;color:var(--fg-muted);text-align:center;margin-bottom:22px;line-height:1.5;min-height:40px}
+
+  .seg-full{display:flex;width:100%;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .seg-full button{
+    flex:1;padding:9px 8px;background:transparent;border:none;
+    font:600 12.5px var(--sans);color:var(--fg-muted);
+    transition:background-color .15s ease,color .15s ease;
+  }
+  .seg-full button + button{border-left:1px solid var(--border)}
+  .seg-full button.active{background:var(--accent);color:var(--accent-fg)}
+  .seg-role{margin-bottom:16px}
+  .seg-mode{margin-bottom:18px}
+
+  .btn-google{
+    width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:11px;border:1px solid var(--border);border-radius:8px;background:var(--bg);
+    color:var(--fg);font:600 14px var(--sans);cursor:pointer;
+    transition:border-color .15s ease,background-color .15s ease;
+  }
+  .btn-google:hover{border-color:var(--fg-faint)}
+  .btn-google svg{width:18px;height:18px}
+
+  .or-div{
+    display:flex;align-items:center;gap:12px;margin:18px 0;
+    color:var(--fg-faint);font:700 10px var(--sans);letter-spacing:.09em;text-transform:uppercase;
+  }
+  .or-div::before,.or-div::after{content:"";flex:1;height:1px;background:var(--border-soft)}
+
+  .field{margin-bottom:14px}
+  .field label{
+    display:block;font:600 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;
+    color:var(--fg-faint);margin-bottom:6px;
+  }
+  .field-input{position:relative;display:flex;align-items:center}
+  .field-input > svg.lead{
+    position:absolute;left:12px;width:15px;height:15px;color:var(--fg-faint);pointer-events:none;
+  }
+  .field-input input{
+    width:100%;padding:11px 12px 11px 36px;border:1px solid var(--border);border-radius:var(--radius-sm);
+    background:var(--bg);color:var(--fg);font:400 14px var(--sans);
+    transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .field-input input::placeholder{color:var(--fg-faint)}
+  .field-input input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .field-input .eye{
+    position:absolute;right:8px;background:none;border:none;color:var(--fg-faint);
+    padding:6px;display:flex;cursor:pointer;
+  }
+  .field-input .eye svg{width:16px;height:16px}
+  .field-input .eye:hover{color:var(--fg-muted)}
+
+  .row-forgot{display:flex;justify-content:flex-end;margin:-2px 0 16px}
+  .row-forgot a{font-size:12.5px;color:var(--accent-strong)}
+
+  .auth-card .btn-primary{width:100%;justify-content:center;padding:12px;margin-top:4px}
+
+  .notice{
+    margin-top:16px;padding:11px 13px;border-radius:var(--radius-sm);font-size:12.5px;line-height:1.5;
+    background:var(--accent-soft-2);border:1px solid var(--border-soft);color:var(--fg-muted);text-align:center;
+  }
+  .notice.err{border-color:var(--down);color:var(--fg)}
+
+  .guest{
+    display:block;text-align:center;margin-top:18px;padding-top:16px;
+    border-top:1px solid var(--border-soft);font-size:13px;color:var(--fg-muted);
+  }
+  .guest a{color:var(--fg-muted);text-decoration:underline}
+  .guest a:hover{color:var(--fg)}
+
+  .join-foot{text-align:center;padding:18px;font-size:11.5px;color:var(--fg-faint)}
+
+  /* role / mode conditional fields (card carries data-mode + data-role) */
+  .only-register{display:none}
+  [data-mode="register"] .only-register{display:block}
+  [data-mode="register"][data-role="donor"] .role-org{display:none}
+  [data-mode="register"]:not([data-role="donor"]) .role-person{display:none}
+  .signin-only{display:none}
+  [data-mode="signin"] .signin-only{display:flex}
+
+  @media(max-width:480px){
+    .auth-card{padding:28px 20px}
+    .join-top{padding:16px 18px}
+    .join-main{padding:20px 16px 40px}
+  }
+</style>
+</head>
+<body>
+<div class="join-bg"></div>
+
+<header class="join-top">
+  <a class="brand" href="index.html">
+    <span class="mark">R</span>
+    <span>Rudhira</span>
+    <span class="devanagari">&#2352;&#2369;&#2343;&#2367;&#2352;</span>
+  </a>
+  <div class="join-actions">
+    <button class="icon-btn" id="langToggle" type="button" aria-label="Switch language" title="Switch language">EN</button>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch theme" title="Switch theme">&#9728;</button>
+  </div>
+</header>
+
+<main class="join-main">
+  <form class="auth-card" id="authCard" data-mode="signin" data-role="donor">
+    <div class="auth-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+    </div>
+
+    <h1 data-i18n="join_heading">Join the Rudhira network</h1>
+    <p class="auth-sub" id="authSub" data-i18n="join_sub_donor">Track your donations, your tier, and where each unit went.</p>
+
+    <div class="seg-full seg-role" id="roleTabs" role="tablist" aria-label="Account type">
+      <button type="button" data-role="donor" class="active" data-i18n="join_role_donor">Donor</button>
+      <button type="button" data-role="hospital" data-i18n="join_role_hospital">Hospital</button>
+      <button type="button" data-role="fractionator" data-i18n="join_role_fractionator">Fractionator</button>
+    </div>
+
+    <div class="seg-full seg-mode" id="modeTabs" role="tablist" aria-label="Sign in or register">
+      <button type="button" data-mode="signin" class="active" data-i18n="join_tab_signin">Sign in</button>
+      <button type="button" data-mode="register" data-i18n="join_tab_register">Register</button>
+    </div>
+
+    <button type="button" class="btn-google" id="googleBtn">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+      <span data-i18n="join_google">Continue with Google</span>
+    </button>
+
+    <div class="or-div"><span data-i18n="join_or_email">or with email</span></div>
+
+    <div class="field only-register role-person">
+      <label for="fullName" data-i18n="join_label_name">Full name</label>
+      <div class="field-input">
+        <svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <input type="text" id="fullName" name="fullName" autocomplete="name" data-i18n-ph="join_ph_name" placeholder="Your name">
+      </div>
+    </div>
+
+    <div class="field only-register role-org">
+      <label for="org" data-i18n="join_label_org">Organisation name</label>
+      <div class="field-input">
+        <svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M9 6h.01M15 6h.01M12 6h.01M12 10h.01M12 14h.01M15 10h.01M15 14h.01M9 10h.01M9 14h.01"/></svg>
+        <input type="text" id="org" name="org" autocomplete="organization" data-i18n-ph="join_ph_org" placeholder="e.g. District Blood Centre, Nagpur">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email" data-i18n="join_label_email">Email address</label>
+      <div class="field-input">
+        <svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <input type="email" id="email" name="email" autocomplete="email" data-i18n-ph="join_ph_email" placeholder="name@example.com">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="password" data-i18n="join_label_password">Password</label>
+      <div class="field-input">
+        <svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <input type="password" id="password" name="password" autocomplete="current-password" data-i18n-ph="join_ph_password" placeholder="Enter your password">
+        <button type="button" class="eye" id="eyeBtn" aria-label="Show password">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="row-forgot signin-only">
+      <a href="#" data-i18n="join_forgot">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="join_submit_signin">Sign in</button>
+
+    <div class="notice" id="notice" hidden></div>
+
+    <span class="guest"><a href="index.html" data-i18n="join_guest">Skip for now, continue as guest</a> &rarr;</span>
+  </form>
+</main>
+
+<footer class="join-foot">
+  <span data-i18n="join_foot">Rudhira &middot; Blood and Plasma Supply Chain, E-Cell, IIT (ISM) Dhanbad</span>
+</footer>
+
+<script src="translations.js"></script>
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var dict = window.RUDHIRA_I18N || {};
+  var lang = "en";
+
+  function t(key){ var e = dict[key]; return e ? (e[lang] || e.en) : ""; }
+
+  /* ---- Theme (shared with the main site via localStorage) ---- */
+  var themeBtn = document.getElementById("themeToggle");
+  function applyTheme(x){
+    root.setAttribute("data-theme", x);
+    themeBtn.textContent = x === "light" ? "☾" : "☀";
+    themeBtn.setAttribute("aria-label", x === "light" ? "Switch to dark theme" : "Switch to light theme");
+    try{ localStorage.setItem("rudhira-theme", x); }catch(e){}
+  }
+  var savedTheme = null;
+  try{ savedTheme = localStorage.getItem("rudhira-theme"); }catch(e){}
+  applyTheme(savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+  themeBtn.addEventListener("click", function(){
+    applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+  });
+
+  /* ---- Language (shared) ---- */
+  var langBtn = document.getElementById("langToggle");
+  var card = document.getElementById("authCard");
+  var authSub = document.getElementById("authSub");
+  var submitBtn = document.getElementById("submitBtn");
+  var notice = document.getElementById("notice");
+
+  function syncSub(){
+    var key = "join_sub_" + card.getAttribute("data-role");
+    authSub.setAttribute("data-i18n", key);
+    if(dict[key]) authSub.textContent = t(key);
+  }
+  function syncSubmit(){
+    var key = card.getAttribute("data-mode") === "register" ? "join_submit_register" : "join_submit_signin";
+    submitBtn.setAttribute("data-i18n", key);
+    if(dict[key]) submitBtn.textContent = t(key);
+  }
+
+  function applyLang(l){
+    lang = (l === "hi") ? "hi" : "en";
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var e = dict[el.getAttribute("data-i18n")];
+      if(e) el.textContent = e[lang] || e.en;
+    });
+    document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+      var e = dict[el.getAttribute("data-i18n-ph")];
+      if(e) el.setAttribute("placeholder", e[lang] || e.en);
+    });
+    root.setAttribute("lang", lang);
+    langBtn.textContent = lang === "hi" ? "हिं" : "EN";
+    try{ localStorage.setItem("rudhira-lang", lang); }catch(e){}
+    if(!notice.hidden) notice.textContent = notice.dataset.key ? t(notice.dataset.key) : notice.textContent;
+  }
+  var savedLang = null;
+  try{ savedLang = localStorage.getItem("rudhira-lang"); }catch(e){}
+  applyLang(savedLang === "hi" ? "hi" : "en");
+  langBtn.addEventListener("click", function(){ applyLang(lang === "hi" ? "en" : "hi"); });
+
+  /* ---- Role / mode tabs ---- */
+  function wireTabs(id, attr, after){
+    var group = document.getElementById(id);
+    group.addEventListener("click", function(ev){
+      var b = ev.target.closest("button");
+      if(!b) return;
+      card.setAttribute(attr, b.getAttribute(attr));
+      group.querySelectorAll("button").forEach(function(x){ x.classList.toggle("active", x === b); });
+      hideNotice();
+      after();
+    });
+  }
+  wireTabs("roleTabs", "data-role", syncSub);
+  wireTabs("modeTabs", "data-mode", syncSubmit);
+  syncSubmit();
+
+  /* ---- Password show / hide ---- */
+  var pw = document.getElementById("password");
+  var eye = document.getElementById("eyeBtn");
+  eye.addEventListener("click", function(){
+    var reveal = pw.type === "password";
+    pw.type = reveal ? "text" : "password";
+    eye.setAttribute("aria-label", reveal ? "Hide password" : "Show password");
+  });
+
+  /* ---- Demo submit (static front-end, no backend) ---- */
+  function showNotice(key, isErr){
+    notice.dataset.key = key;
+    notice.textContent = t(key);
+    notice.classList.toggle("err", !!isErr);
+    notice.hidden = false;
+  }
+  function hideNotice(){ notice.hidden = true; delete notice.dataset.key; }
+
+  card.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("email").value.trim();
+    var pass = document.getElementById("password").value;
+    if(!email || !pass){
+      showNotice("join_notice_fill", true);
+      return;
+    }
+    showNotice("join_demo_notice", false);
+  });
+  document.getElementById("googleBtn").addEventListener("click", function(){
+    showNotice("join_demo_notice", false);
+  });
+})();
+</script>
+</body>
+</html>

@@ -309,5 +309,33 @@ window.RUDHIRA_I18N = {
     en: "Metro population figures for Nagpur, Indore, and Coimbatore: <a href=\"https://www.macrotrends.net/global-metrics/cities/21347/nagpur/population\">Macrotrends, Nagpur</a>, <a href=\"https://www.macrotrends.net/global-metrics/cities/21278/indore/population\">Macrotrends, Indore</a>, and <a href=\"https://en.wikipedia.org/wiki/Coimbatore_metropolitan_area\">Coimbatore metropolitan area, Wikipedia</a>.",
     hi: "नागपुर, इंदौर और कोयंबटूर के महानगर जनसंख्या आँकड़े: <a href=\"https://www.macrotrends.net/global-metrics/cities/21347/nagpur/population\">Macrotrends, नागपुर</a>, <a href=\"https://www.macrotrends.net/global-metrics/cities/21278/indore/population\">Macrotrends, इंदौर</a>, और <a href=\"https://en.wikipedia.org/wiki/Coimbatore_metropolitan_area\">कोयंबटूर महानगर क्षेत्र, Wikipedia</a>।"
   },
-  footer_tag: { en: "Blood is never sold. Only surplus plasma, under an NBTC-sanctioned channel.", hi: "रक्त कभी नहीं बेचा जाता। केवल अतिरिक्त प्लाज़्मा, NBTC-स्वीकृत माध्यम से।" }
+  footer_tag: { en: "Blood is never sold. Only surplus plasma, under an NBTC-sanctioned channel.", hi: "रक्त कभी नहीं बेचा जाता। केवल अतिरिक्त प्लाज़्मा, NBTC-स्वीकृत माध्यम से।" },
+
+  /* join.html — network sign-in / registration */
+  join_heading: { en: "Join the Rudhira network", hi: "रुधिर नेटवर्क से जुड़ें" },
+  join_role_donor: { en: "Donor", hi: "दाता" },
+  join_role_hospital: { en: "Hospital", hi: "अस्पताल" },
+  join_role_fractionator: { en: "Fractionator", hi: "फ्रैक्शनेटर" },
+  join_sub_donor: { en: "Track your donations, your tier, and where each unit went.", hi: "अपने दान, अपना स्तर, और हर यूनिट कहाँ गई — सब देखें।" },
+  join_sub_hospital: { en: "Order components at the capped fee and view your surplus-plasma reports.", hi: "सीमित शुल्क पर घटक ऑर्डर करें और अपनी अतिरिक्त-प्लाज़्मा रिपोर्ट देखें।" },
+  join_sub_fractionator: { en: "Manage offtake agreements and documented-surplus plasma shipments.", hi: "ऑफटेक समझौते और दर्ज-अतिरिक्त प्लाज़्मा खेप प्रबंधित करें।" },
+  join_tab_signin: { en: "Sign in", hi: "साइन इन" },
+  join_tab_register: { en: "Register", hi: "रजिस्टर" },
+  join_google: { en: "Continue with Google", hi: "Google से जारी रखें" },
+  join_or_email: { en: "or with email", hi: "या ईमेल से" },
+  join_label_name: { en: "Full name", hi: "पूरा नाम" },
+  join_label_org: { en: "Organisation name", hi: "संगठन का नाम" },
+  join_label_email: { en: "Email address", hi: "ईमेल पता" },
+  join_label_password: { en: "Password", hi: "पासवर्ड" },
+  join_ph_name: { en: "Your name", hi: "आपका नाम" },
+  join_ph_org: { en: "e.g. District Blood Centre, Nagpur", hi: "उदा. ज़िला ब्लड सेंटर, नागपुर" },
+  join_ph_email: { en: "name@example.com", hi: "name@example.com" },
+  join_ph_password: { en: "Enter your password", hi: "अपना पासवर्ड दर्ज करें" },
+  join_forgot: { en: "Forgot password?", hi: "पासवर्ड भूल गए?" },
+  join_submit_signin: { en: "Sign in", hi: "साइन इन करें" },
+  join_submit_register: { en: "Create account", hi: "खाता बनाएँ" },
+  join_guest: { en: "Skip for now, continue as guest", hi: "अभी छोड़ें, अतिथि के रूप में जारी रखें" },
+  join_notice_fill: { en: "Enter your email and password to continue.", hi: "जारी रखने के लिए अपना ईमेल और पासवर्ड दर्ज करें।" },
+  join_demo_notice: { en: "Thanks — the Rudhira network isn't taking live sign-ups yet. This is a pilot-stage demo.", hi: "धन्यवाद — रुधिर नेटवर्क अभी लाइव साइन-अप नहीं ले रहा। यह पायलट-चरण का डेमो है।" },
+  join_foot: { en: "Rudhira · Blood and Plasma Supply Chain, E-Cell, IIT (ISM) Dhanbad", hi: "रुधिर · रक्त एवं प्लाज़्मा सप्लाई चेन, ई-सेल, IIT (ISM) धनबाद" }
 };
