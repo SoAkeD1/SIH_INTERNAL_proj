@@ -11,7 +11,6 @@ window.SUPABASE_ANON_KEY = "sb_publishable_Ztd8VT_l_M3YWh79r1-DAg_sS-KbgBv";
 window.SUPABASE_READY = !/^REPLACE_WITH_/.test(window.SUPABASE_URL) &&
                         !/^REPLACE_WITH_/.test(window.SUPABASE_ANON_KEY);
 
-/* Flip to true only after enabling the Google provider in
-   Supabase → Authentication → Providers → Google (needs a Google Cloud
-   OAuth client). While false, the "Continue with Google" button is hidden. */
-window.SUPABASE_GOOGLE = false;
+/* Google provider is enabled in Supabase (Google Cloud OAuth client set up).
+   Set false to hide the "Continue with Google" button. */
+window.SUPABASE_GOOGLE = true;

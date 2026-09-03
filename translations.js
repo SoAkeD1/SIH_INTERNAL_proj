@@ -347,6 +347,8 @@ window.RUDHIRA_I18N = {
   dash_signout: { en: "Sign out", hi: "साइन आउट" },
   dash_welcome: { en: "Welcome to your Rudhira dashboard", hi: "अपने रुधिर डैशबोर्ड में आपका स्वागत है" },
   dash_signed_as: { en: "Signed in as", hi: "साइन इन:" },
+  dash_pick_h: { en: "One more thing — which are you?", hi: "एक आख़िरी बात — आप कौन हैं?" },
+  dash_pick_b: { en: "This sets what your dashboard shows. You can change it later.", hi: "यह तय करता है कि आपका डैशबोर्ड क्या दिखाता है। आप इसे बाद में बदल सकते हैं।" },
   dash_note: { en: "Live data connects once the pilot hub is operating — this screen confirms your account and role; the workflow tools come next.", hi: "पायलट हब के संचालन में आने पर लाइव डेटा जुड़ जाएगा — यह स्क्रीन आपके खाते और भूमिका की पुष्टि करती है; कार्य-प्रवाह उपकरण आगे आएँगे।" },
   dash_d1_t: { en: "Your donations", hi: "आपके दान" },
   dash_d1_b: { en: "Whole-blood and plasma donations logged to your account.", hi: "आपके खाते में दर्ज संपूर्ण-रक्त और प्लाज़्मा दान।" },

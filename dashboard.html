@@ -11,7 +11,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
+  [hidden]{display:none !important}
   body{min-height:100vh;display:flex;flex-direction:column}
+
+  /* first-time role picker (Google sign-ins skip the register form) */
+  .role-pick{flex:1;display:flex;align-items:center;justify-content:center;padding:32px var(--gutter) 64px}
+  .role-pick-card{
+    width:100%;max-width:460px;text-align:center;
+    border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-elev);
+    box-shadow:var(--shadow-md);padding:38px;
+  }
+  .role-pick-card h1{font-size:22px;line-height:1.2;margin-bottom:8px}
+  .role-pick-card > p{font-size:13.5px;color:var(--fg-muted);margin-bottom:22px}
+  .role-pick-opts{display:grid;gap:10px}
+  .role-pick-opts button{
+    padding:14px;border:1px solid var(--border);border-radius:var(--radius-sm);
+    background:var(--bg);color:var(--fg);font:600 15px var(--sans);cursor:pointer;
+    transition:border-color .15s ease,background-color .15s ease;
+  }
+  .role-pick-opts button:hover{border-color:var(--accent);background:var(--accent-soft-2)}
+  .role-pick-opts button:disabled{opacity:.6;cursor:default}
+  .role-pick-err{margin-top:14px;font-size:12.5px;color:var(--down)}
   .dash-top{
     display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
     padding:16px var(--gutter);border-bottom:1px solid var(--border-soft);
@@ -73,6 +93,19 @@
     <button class="btn btn-ghost btn-sm" id="signOutBtn" type="button" data-i18n="dash_signout">Sign out</button>
   </div>
 </header>
+
+<div class="role-pick" id="rolePick" hidden>
+  <div class="role-pick-card">
+    <h1 data-i18n="dash_pick_h">One more thing &mdash; which are you?</h1>
+    <p data-i18n="dash_pick_b">This sets what your dashboard shows. You can change it later.</p>
+    <div class="role-pick-opts">
+      <button type="button" data-role="donor" data-i18n="join_role_donor">Donor</button>
+      <button type="button" data-role="hospital" data-i18n="join_role_hospital">Hospital</button>
+      <button type="button" data-role="fractionator" data-i18n="join_role_fractionator">Fractionator</button>
+    </div>
+    <p class="role-pick-err" id="rolePickErr" hidden></p>
+  </div>
+</div>
 
 <main class="dash-main" id="dashMain" hidden>
   <div class="dash-welcome">
@@ -146,21 +179,47 @@
 
   if(!sb){ location.replace("join.html"); return; }
 
-  sb.auth.getSession().then(function(res){
-    var session = res && res.data && res.data.session;
-    if(!session){ location.replace("join.html"); return; }
+  var VALID_ROLES = ["donor", "hospital", "fractionator"];
 
-    var user = session.user || {};
-    var meta = user.user_metadata || {};
-    var role = ["donor","hospital","fractionator"].indexOf(meta.role) >= 0 ? meta.role : "donor";
-
+  function renderDashboard(user, role){
     document.getElementById("userEmail").textContent = user.email || "—";
     var rb = document.getElementById("roleBadge");
     rb.dataset.role = role;
     rb.textContent = t("join_role_" + role);
     document.getElementById("dashGrid").setAttribute("data-role", role);
-
+    document.getElementById("rolePick").hidden = true;
     document.getElementById("dashMain").hidden = false;
+  }
+
+  function showRolePick(user){
+    var pick = document.getElementById("rolePick");
+    var err = document.getElementById("rolePickErr");
+    pick.hidden = false;
+    pick.querySelectorAll(".role-pick-opts button").forEach(function(b){
+      b.addEventListener("click", function(){
+        var chosen = b.getAttribute("data-role");
+        err.hidden = true;
+        pick.querySelectorAll("button").forEach(function(x){ x.disabled = true; });
+        sb.auth.updateUser({ data: { role: chosen } }).then(function(res){
+          if(res.error){
+            err.textContent = res.error.message;
+            err.hidden = false;
+            pick.querySelectorAll("button").forEach(function(x){ x.disabled = false; });
+            return;
+          }
+          renderDashboard(user, chosen);
+        });
+      });
+    });
+  }
+
+  sb.auth.getSession().then(function(res){
+    var session = res && res.data && res.data.session;
+    if(!session){ location.replace("join.html"); return; }
+    var user = session.user || {};
+    var role = (user.user_metadata || {}).role;
+    if(VALID_ROLES.indexOf(role) >= 0) renderDashboard(user, role);
+    else showRolePick(user);
   });
 
   sb.auth.onAuthStateChange(function(evt){
