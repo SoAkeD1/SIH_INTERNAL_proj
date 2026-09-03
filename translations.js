@@ -90,8 +90,8 @@ window.RUDHIRA_I18N = {
 
   econ_h2: { en: "The arithmetic, per donation", hi: "प्रति दान, गणित" },
   econ_intro: { en: "Same fully-loaded cost of Rs 1,829 in every scenario. What changes is the fee ceiling a centre operates under, and whether unissued plasma is discarded or sold under contract to a fractionator.", hi: "हर परिदृश्य में समान \u20b91,829 की पूर्ण लागत। जो बदलता है वह शुल्क सीमा है, और क्या अनइश्यूड प्लाज़्मा को फेंका जाता है या अनुबंध के तहत बेचा जाता है।" },
-  econ_today: { en: "Today", hi: "आज" },
-  econ_rudhira: { en: "Rudhira", hi: "रुधिर" },
+  econ_today: { en: "Today, clinical-only plasma route", hi: "आज, केवल नैदानिक प्लाज़्मा मार्ग" },
+  econ_rudhira: { en: "Rudhira, fractionator plasma route", hi: "रुधिर, फ्रैक्शनेटर प्लाज़्मा मार्ग" },
   econ_private: { en: "Private-rate centre", hi: "निजी-दर केंद्र" },
   econ_govt: { en: "Government-rate centre", hi: "सरकारी-दर केंद्र" },
   econ_redcells: { en: "Red cells (PRBC)", hi: "लाल कोशिकाएँ (PRBC)" },
