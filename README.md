@@ -63,12 +63,12 @@ Real sign-up / sign-in for the three parties the model connects — **Donor, Hos
 
 ```mermaid
 flowchart LR
-    D1["College drive"] --> HUB
-    D2["Corporate drive"] --> HUB
-    D3["Residential drive"] --> HUB
-    HUB["Processing hub<br/>NAT testing · component separation · cold chain"]
-    HUB --> H["Hospitals<br/>red cells &amp; platelets, capped fee<br/>(first claim, always)"]
-    HUB --> F["Licensed fractionator<br/>surplus plasma only —<br/>logged unissued past a fixed pre-expiry cutoff"]
+    D1[College drive] --> HUB
+    D2[Corporate drive] --> HUB
+    D3[Residential drive] --> HUB
+    HUB[Processing hub<br/>NAT testing, component separation, cold chain]
+    HUB --> H[Hospitals<br/>red cells and platelets<br/>at the capped fee]
+    HUB --> F[Licensed fractionator<br/>surplus plasma only, logged unissued<br/>past a fixed pre-expiry cutoff]
 ```
 
 1. A donor gives at a mobile drive — voluntary, unpaid.
@@ -81,12 +81,12 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    IDX["index.html"] -->|"Join the network"| JOIN["join.html<br/>pick role: Donor / Hospital / Fractionator"]
-    JOIN -->|"Register (email + password)"| REG["role + name/org saved to profile"]
-    JOIN -->|"Continue with Google"| G["OAuth round-trip<br/>returns with no role"]
-    G --> PICK["one-time &quot;which are you?&quot; picker"]
+    IDX[index.html] -->|Join the network| JOIN[join.html<br/>pick a role:<br/>Donor, Hospital or Fractionator]
+    JOIN -->|Register with email| REG[role and name saved to profile]
+    JOIN -->|Continue with Google| G[OAuth round-trip<br/>returns with no role]
+    G --> PICK[first-time role picker]
     REG --> DASH
-    PICK --> DASH["dashboard.html<br/>gated · role-specific cards · Sign out → home"]
+    PICK --> DASH[dashboard.html<br/>gated, role-specific cards<br/>Sign out returns home]
 ```
 
 - **Register** with email + password → role (Donor / Hospital / Fractionator) and name/organisation are saved to the user's profile → straight to the dashboard.
